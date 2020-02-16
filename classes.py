@@ -41,4 +41,9 @@ class New:
         self.date = date
         self.title = title
         self.desc = desc
+        self.content = []
+        self.related = {}
+        self.located = {}
+        self.tags = []
+        self.video = {}
 
