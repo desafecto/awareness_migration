@@ -1,0 +1,725 @@
+{
+    "glossary": [
+        {
+            "id": "phishing",
+            "title": "Phishing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "QUÉ ES",
+                        "Suplantación de identidad de una compañía o persona a través de correo electrónico para obtener los datos personales y/o bancarios de los usuarios. El correo contiene un enlace que redirige a una página web fraudulenta.",
+                        "CÓMO FUNCIONA",
+                        "Recibes un correo electrónico de una supuesta fuente legítima que contiene un enlace a una página web falsa, en la que se te pide que introduzcas datos personales o financieros.",
+                        "El correo también puede contener algún tipo de archivo adjunto que, una vez descargado, permitirá al estafador acceder a tu ordenador o dispositivo móvil.",
+                        "CÓMO PROTEGERSE"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "Revisa detenidamente el remitente de los correos y sospecha de aquellos que contengan expresiones extrañas o construcciones gramaticales incorrectas.",
+                        "No introduzcas datos personales en una página web a la que has accedido a través de un correo. Si conoces la web a la que se refiere, entra tecleando la dirección.",
+                        "No abras enlaces o archivos adjuntos si tienes dudas sobre su procedencia."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Correo malicioso",
+                "Suplantación de identidad"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "smishing",
+            "title": "Smishing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "QUÉ ES",
+                        "Mensajes fraudulentos (vía WhatsApp o SMS) en los que suplantan la identidad de compañías conocidas para solicitar a los usuarios datos personales y privados.",
+                        "CÓMO FUNCIONA",
+                        "Recibes un mensaje con carácter urgente sobre una promoción, un premio o una oferta muy atractiva, y te solicitan que llames, respondas al mensaje o pulses en el enlace que incluye para poder obtenerla/o.",
+                        "Otra variante de «smishing» se basa en suplantar a una entidad bancaria para comunicarte que debes reactivar tu cuenta o verificar/actualizar la información de la misma.",
+                        "CÓMO PROTEGERSE"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "No accedas a páginas web desde enlaces incluidos en mensajes.",
+                        "No proporciones tu información privada si recibes un mensaje de este tipo.",
+                        "Contacta con la entidad que dice representar, a través de un teléfono o canal oficial, si dudas de la autenticidad del mensaje."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Fraude por SMS",
+                "Suplantación de identidad"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": true,
+                    "desc": "Mensajes fraudulentos (vía WhatsApp o SMS) que suplantan la identidad de compañías conocidas y tienen un carácter urgente.",
+                    "img": "assets/vendor/res/img/banners/banner_ipad.svg"
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "baiting",
+            "title": "Baiting",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "QUÉ ES",
+                        "Ataque a través de dispositivos USB infectados con malware que han sido depositados deliberadamente en un lugar público para que las víctimas los conecten a sus equipos.",
+                        "CÓMO FUNCIONA",
+                        "Encuentras un USB en las inmediaciones de tu centro de trabajo o en cualquier otro lugar público y sientes curiosidad por saber qué contiene o quién es su propietario. Lo conectas a tu equipo y este dispositivo, infectado con «malware», secuestra toda la información que tengas alojada en tu ordenador.",
+                        "CÓMO PROTEGERSE"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "Si encuentras un dispositivo de almacenamiento externo en tu lugar de trabajo, entrégalo al personal de seguridad. Nunca conectes un dispositivo USB extraviado en tu equipo.",
+                        "En tu ordenador personal, instala y mantén siempre actualizado un programa antivirus."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "vishing",
+            "title": "Vishing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "QUÉ ES",
+                        "Estafa ejecutada a través de llamadas telefónicas en las que los atacantes se hacen pasar habitualmente por empleados de un call center para obtener datos confidenciales de los usuarios.",
+                        "CÓMO FUNCIONA",
+                        "Recibes una llamada telefónica de un supuesto técnico de una compañía conocida; te comunica, por ejemplo, que se ha producido un movimiento extraño en una de tus cuentas o que tu equipo ha sido infectado, por lo que debe acceder a él en remoto para solucionar el problema. Después, tras haber conseguido acceso a tu información y documentación privada, te solicitará un ingreso bancario a modo de rescate o los datos de tu tarjeta de crédito, argumentando que debe realizar el cobro del servicio prestado.",
+                        "CÓMO PROTEGERSE"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "No proporciones información privada en llamadas telefónicas recibidas.",
+                        "Desconfía de las llamadas que denoten urgencia y en las que te soliciten datos confidenciales.",
+                        "Como regla general, no devuelvas la llamada a números de teléfono desconocidos."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Estafa telefónica",
+                "Suplantación de identidad"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "malware",
+            "title": "Malware",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "QUÉ ES",
+                        "Software malicioso incorporado en algunos programas y páginas web que, al ejecutarse, provoca daños en el equipo o logra acceder a la información alojada en él.",
+                        "CÓMO FUNCIONA",
+                        "Visitas una página web o descargas una aplicación que han sido infectadas previamente con publicidad maliciosa. Tras realizar una de estas acciones, el «malware» se instalaría en tu equipo o dispositivo en caso de que no tuvieras el software actualizado ni un programa antivirus instalado y en funcionamiento.",
+                        "CÓMO PROTEGERSE"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "Mantén siempre actualizados el software y las aplicaciones de tu equipo y dispositivo móvil.",
+                        "Instala un programa antivirus y tenlo también actualizado.",
+                        "En tu dispositivo móvil, descarga las aplicaciones exclusivamente desde los mercados oficiales: Google Play o App Store.",
+                        "Utiliza herramientas para detectar páginas web infectadas como, por ejemplo, Safe Browsing de Google."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Badware"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "ransomware",
+            "title": "Ransomware",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Ataque a través de archivos adjuntos maliciosos que, una vez descargados por la víctima, toman el control de su equipo, secuestran y cifran sus documentos.",
+                        "Posteriormente, los ciberdelincuentes piden un rescate económico a los afectados a cambio de devolverles su información."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Malware"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "bruteforceattack",
+            "title": "Ataque de fuerza bruta",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Ataque ejecutado para averiguar contraseñas que consiste en probar combinaciones de letras y números al azar hasta dar con el patrón correcto."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "spyware",
+            "title": "Spyware",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "\"Software espía\" que se instala en el equipo de los usuarios si descargan un fichero adjunto infectado o si descargan e instalan algún programa que contenga este software camuflado.",
+                        "Es capaz de recoger información privada de los usuarios, como sus hábitos de navegación, correos, contraseñas, datos bancarios, etc."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Malware"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "ddosattack",
+            "title": "Ataque DDoS",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Un ataque de denegación de servicio tiene como objetivo, como su nombre indica, dejar fuera de servicio a una plataforma o página web. Para conseguirlo, los ciberdelincuentes utilizan muchos ordenadores a la vez hasta lograr saturar el servidor de la página y dejarla inutilizada."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "psd2",
+            "title": "PSD2",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "La norma europea PSD2 (Segunda Directiva de Servicios de Pago), en vigor desde el pasado 25 de noviembre de 2018, demanda a las entidades financieras tradicionales abrir sus servicios de pago a terceros, con el objetivo de incentivar la competencia y de mejorar los servicios a disposición de los ciudadanos en Europa."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "oversharing",
+            "title": "Oversharing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Sobreexposición de información personal en Internet, en concreto, en las redes sociales. Esta práctica conlleva un alto riesgo para el usuario si no configura adecuadamente las opciones de privacidad de sus redes y terceras personas con fines malintencionados logran acceder a su información."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "simswap",
+            "title": "SIM swap",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "\"SIM SWAP\" es una técnica de fraude que consiste en el duplicado fraudulento de la tarjeta SIM del teléfono móvil de la víctima por parte de un delincuente, que suplanta la identidad de la víctima. De esta forma, mientras esta se queda sin servicio telefónico, el delincuente puede acceder a su información personal y, sobre todo, puede tomar el control de la banca electrónica de la víctima utilizando los SMS de verificación que llegan al móvil.",
+                        "Habitualmente esta técnica viene precedida de un Phishing o un Vishing a través de los cuales los ciberdelincuentes intentan conseguir el usuario y contraseña del cliente, que junto con los SMS de autorización de operación, completa la información para desencadenar el fraude."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Duplicado de tarjeta SIM"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "spoofing",
+            "title": "Spoofing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Suplantación de identidad llevada a cabo por un atacante como resultado de un proceso de investigación previo. El delincuente se hace pasar por una entidad en una comunicación enviada a las víctimas gracias a la información que ha recopilado y a la falsificación de los datos de dicha entidad."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Phishing",
+                "Smishing",
+                "Vishing",
+                "Suplantación de identidad"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "pharming",
+            "title": "Pharming",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Ataque al DNS (Domain Name Server) con el que el delicuente redirige a los usuarios a una página web falsa, que ya cuenta con el nombre de dominio oficial gracias a la vulneración, para robarles su información privada."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Phishing"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "adware",
+            "title": "Adware",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Software incorporado habitualmente en programas gratuitos que tiene como objetivo obtener beneficios económicos mediante la publicidad invasiva. Las ventanas emergentes (pop-up) o las barras de tareas (toolbar) son ejemplos de adware que se instalan en el ordenador cuando el usuario configura alguno de estos programas."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "troyano",
+            "title": "Troyano",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Software malicioso oculto en un programa aparentemente legítimo e inofensivo. La misión del troyano es crear una puerta trasera que dé acceso a un atacante al ordenador del usuario para robarle su información confidencial."
+                    ]
+                }
+            ],
+            "synonyms": [
+                "Malware",
+                "Código malicioso"
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": false
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        }
+    ],
+    "news": [
+        {
+            "id": "2019_11_15_market_app",
+            "img": "https://m.bbva.es/estaticos/mult/new_identificacion_logo_640x230.png",
+            "date": "15-11-2019",
+            "title": "Cómo identificar la app oficial de BBVA",
+            "desc": "Indicadores para reconocerla",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Si un amigo o familiar se hace cliente de BBVA y necesita descargar la app del banco para poder operar en su cuenta, ¿sabrías indicarle cuál es nuestra aplicación oficial?",
+                        "En los últimos meses se han creado diversas aplicaciones fraudulentas que suplantan la identidad de BBVA. Por ello, queremos mostrarte los indicadores clave que se deben observar para diferenciar nuestra app oficial de otras aplicaciones fraudulentas:"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "En primer lugar, la app de BBVA solo está disponible en los mercados oficiales: Google Play Store y App Store. Por lo tanto, no se debe descargar de ningún otro mercado alternativo.",
+                        "La app oficial de BBVA tiene más de 5 millones de descargas. Este número elevado de descargas nos sirve como indicador de la autenticidad de la aplicación.",
+                        "En ella se puede observar el logo con el nombre completo del banco (en el de las aplicaciones fraudulentas suele aparecer recortado o con algunas letras distintas), y el nombre correcto de BBVA España.",
+                        "La app de BBVA tiene una valoración alta y miles de opiniones a día de hoy. Esta es una pista más que nos ayuda a reconocerla. En cambio, las aplicaciones fraudulentas no suelen tener buena puntuación ni un alto número de opiniones.",
+                        "La \"Información de contacto del desarrollador\" de la app de BBVA es bbvabancamovil@bbva.com. En caso de que aparezca cualquier otra dirección de correo electrónico, se recomienda no descargar la aplicación."
+                    ]
+                },
+                {
+                    "type": "p",
+                    "content": [
+                        "Observando fácilmente estos indicadores puedes ayudar a alguien a detectar que la App es la oficial de BBVA."
+                    ]
+                }
+            ],
+            "related": {
+                "tips": [
+                    "learn_protecting_from_pishing"
+                ]
+            },
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "2019_11_14_ceo",
+            "img": "https://m.bbva.es/estaticos/mult/new_alerta_fraude_CEO_640x230.png",
+            "date": "8-11-2019",
+            "title": "¿Qué es el Fraude al CEO?",
+            "desc": "Cinco medidas para evitar este fraude",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "El denominado \"Fraude al CEO\" es un tipo de ataque realizado a través de correo electrónico en el que se suplanta a un directivo de una entidad para solicitar a un empleado del departamento financiero que realice una transferencia confidencial y urgente, a menudo, a un banco fuera de Europa, y que no siga los procedimientos de autorización habituales.",
+                        "Los atacantes consiguen suplantar a los directivos obteniendo previamente las claves de sus cuentas de correo corporativas, o bien creando cuentas muy similares a las reales (cambiando alguna letra o signo de puntuación).",
+                        "A día de hoy existe una nueva variante de esta estafa. El Fraude al CEO también puede tomar la forma de un email en el que el atacante suplanta a un proveedor de servicio de la entidad para comunicarle que han cambiado el número de cuenta y que, a partir de ese momento, realice las transferencias al número indicado en el correo.",
+                        "Las principales recomendaciones para evitar ser víctima de un ataque de este tipo son:"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "Revisa detenidamente el remitente del correo para comprobar  que se trata de la dirección oficial.",
+                        "Contacta por vía telefónica u otro canal con el remitente para confirmar si ha sido él realmente quien ha solicitado la operación.",
+                        "Evita publicar direcciones de correo electrónico corporativas en Internet y compartirlas con personas que no sean de tu confianza.",
+                        "No compartas información relativa al organigrama de tu empresa con terceros.",
+                        "No descargues archivos adjuntos nombrados como \"factura\", \"orden de pago\", \"orden de compra\", etc. si recibes un correo electrónico sospechoso."
+                    ]
+                }
+            ],
+            "related": {
+                "tips": [
+                    "learn_protecting_from_pishing"
+                ]
+            },
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "2019_09_18_scam_on_whatsapp",
+            "img": "https://m.bbva.es/estaticos/mult/new_mensaje_640x230.png",
+            "date": "18-09-2019",
+            "title": "Atención a campaña a través de WhatsApp suplantando a la Seguridad Social (TGSS)",
+            "desc": "Campaña en WhatsApp suplantando a TGSS",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "El Grupo de Delitos Telemáticos (GDT) de la Guardia Civil está alertando en Redes Sociales sobre una estafa viralizada a través de WhatsApp.",
+                        "En la campaña suplantan la identidad de la TGSS y comunican al receptor que tiene pendiente la devolución de un importe a su favor.",
+                        "El argumento que utilizan para que la víctima proporcione la información que los estafadores necesitan es que tiene esta aplicación desactivada y no pueden devolverle su dinero.",
+                        "Ten presente que, a día de hoy, la Seguridad Social no está utilizando este tipo de aplicaciones para realizar devoluciones monetarias.",
+                        "Este fraude también se está difundiendo por correo electrónico y llamadas telefónicas. Si te solicitan datos personales o bancarios basándose en la estafa descrita, te recomendamos marcar el correo como spam o denunciar la suplantación de identidad (esta función suele aparecer en las opciones del email en la mayoría de las aplicaciones de correo). En caso de que el contacto haya sido telefónico, te aconsejamos bloquear el número de teléfono."
+                    ]
+                }
+            ],
+            "tags": [
+                "WhatsApp",
+                "Scam"
+            ],
+            "related": {
+                "tips": [
+                    "learn_protecting_from_pishing"
+                ]
+            },
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "2019_09_17_microsoft_calls_scam",
+            "img": "https://m.bbva.es/estaticos/mult/new_movil_640x230.png",
+            "date": "17-09-2019",
+            "title": "Oleada de llamadas fraudulentas suplantando a Microsoft",
+            "desc": "Campaña telefónica suplantando a Microsoft",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "La Guardia Civil ha alertado sobre una nueva oleada de llamadas en las que se hacen pasar por el soporte técnico de Microsoft y comunican a los receptores que sus dispositivos móviles u ordenadores han sido infectados, por lo que necesitan acceder en remoto a ellos para instalar una aplicación (o les piden que ellos mismos instalen un app en el teléfono móvil o en el PC) y solucionar así el problema.",
+                        "Una vez los estafadores han logrado acceder al equipo de la víctima y, por tanto, a toda su información y documentación privada, demandan un ingreso bancario a modo de rescate.",
+                        "En otras ocasiones, y argumentando que deben realizar el cobro del servicio, le solicitan los datos de su tarjeta de crédito para ejecutarlo. Dado que tienen acceso a los SMS de la víctima (gracias a la aplicación que previamente ha instalado), efectúan todo tipo de compras con su tarjeta de crédito.",
+                        "Se trata de una estafa compleja y avanzada, ya que combina dos tipos de ataque: llamada fraudulenta, conocida como Vishing + secuestro de información (Ransomware).",
+                        "Si recibes una llamada así, aunque en tu pantalla llegase a aparecer \"Microsoft\" o \"Técnico soporte\", por ejemplo, y te comunican lo expuesto anteriormente, no proporciones ningún dato y bloquea el número de teléfono. Asimismo, es conveniente que lo notifiques a la Guardia Civil para ayudarles a detener este fraude."
+                    ]
+                }
+            ],
+            "tags": [
+                "Vishing",
+                "Ransomware"
+            ],
+            "related": {
+                "tips": [
+                    "learn_protecting_from_pishing"
+                ]
+            },
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "2019_08_06_telephonic_vishing_campaign",
+            "img": "https://m.bbva.es/estaticos/mult/new_general.svg",
+            "date": "06-08-2019",
+            "title": "Especial atención a las campañas de llamada telefónica que nos solicitan usuario y contraseña",
+            "desc": "Es una estafa que se ejecuta a través de llamadas telefónicas, su objetivo es que el usuario revele datos confidenciales para poder hacer uso de ellos posteriormente",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "¿Qué es el vishing?",
+                        "Es una estafa que se ejecuta a través de llamadas telefónicas, en la que los atacantes se hacen pasar habitualmente por empleados de un call center argumentando  que se ha detectado una actividad sospechosa y con tono alarmista para que la víctima responda rápidamente y sin pensar. Su objetivo es que el usuario revele datos confidenciales para poder hacer uso de ellos posteriormente.",
+                        "Como cliente de BBVA debes saber, que nunca nos vamos a poner en contacto contigo para solicitarte datos confidenciales tales como usuario y clave de acceso de la banca online. Nuestros servicios de call center nunca solicitan la clave completa, ya que es un dato que sólo debe conocer el cliente.",
+                        "¿Cómo me protejo?",
+                        "De forma general, no proporcionar información confidencial, tales como claves completas o datos de tarjetas en llamadas teléfonicas recibidas.",
+                        "Desconfiar de llamadas que denoten cierto grado de urgencia y en la que se soliciten información confidencial.",
+                        "Si sospechas que alguna llamada puede estar relacionada con un fraude, puedes contactar con nosotros en el teléfono  91 2249426 para denunciar lo ocurrido  y que podamos indicarte cómo actuar.",
+                        "En BBVA trabajamos por tu seguridad."
+                    ]
+                }
+            ],
+            "tags": [
+                "Seguridad",
+                "Phishing",
+                "Vishing"
+            ],
+            "related": {
+                "tips": [
+                    "learn_protecting_from_pishing"
+                ]
+            },
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        }
+    ],
+    "tips": [
+        {
+            "id": "are_your_passwords_secure",
+            "img": "https://m.bbva.es/estaticos/mult/tip_pautas_seguridad_218x250.png",
+            "title": "¿Son seguras tus contraseñas?",
+            "linkText": "Leer más",
+            "desc": "Recomendaciones para crear contraseñas seguras",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Una contraseña robusta es aquella que contiene mayúsculas, números y algún símbolo.",
+                        "Será aún más segura si no contiene información que te pueda identificar, como tu fecha de nacimiento o tus apellidos.",
+                        "Las contraseñas son personales y secretas, por lo que nunca, nunca deben compartirse.",
+                        "Te aconsejamos emplear una contraseña distinta para cada servicio. Si te resulta complicado recordarlas todas, puedes hacer uso de un gestor de contraseñas.",
+                        "Siempre que sea posible es recomendable activar la autenticación en dos pasos en los servicios que lo permitan. Además de tu contraseña de acceso, se solicitará otro tipo de identificación (p.e. código enviado al móvil). Este sistema  añade una capa extra de seguridad a la cuenta."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "learn_protecting_from_pishing",
+            "img": "https://m.bbva.es/estaticos/mult/tip_phishing_218x250.png",
+            "title": "¿Sabes en qué consiste un ataque de tipo phishing?",
+            "linkText": "Te lo contamos aquí",
+            "desc": "Aprende a protegerte del phishing",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "Un phishing es un tipo de estafa basada en suplantar la identidad de una compañía o particular a través de un correo electrónico para obtener los datos personales y/o bancarios de los usuarios. También se puede propagar por envío de mensajes SMS a números de móvil (smishing) o a través de llamadas a teléfono móvil o fijo (vishing).",
+                        "BBVA nunca te pedirá tus datos bancarios por ningún canal que no sea nuestra página web o nuestra App, así que evita enviarlos por SMS o email.",
+                        "Observa que el asunto del correo o el cuerpo del texto no tengan faltas de ortografía y verifica siempre también que el remitente del email contiene bbva.com o bbva.es.",
+                        "Ten en cuenta que una página web segura siempre empieza por https://, y desconfía si la url está mal escrita o contiene caracteres extraños como, por ejemplo, www.bb-va.informaci%n.com.",
+                        "Configura tus alertas en la App de BBVA o bbva.es y así, en caso de cualquier movimiento inusual en tus cuentas o tarjetas, te lo notificaremos.",
+                        "Y recuerda que si al comprobar todo esto tienes dudas, antes de hacer clic en algún enlace o descargar archivos adjuntos, lo mejor es que nos llames al 91 224 94 26 para resolverlas."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        },
+        {
+            "id": "what_is_multi_factor_authentication",
+            "img": "https://m.bbva.es/estaticos/mult/tips_autenticacion_reforzada_218x250.png",
+            "title": "¿Qué es la Autenticación Reforzada?",
+            "linkText": "Conócelas aquí",
+            "desc": "Medidas para realizar tus pagos de forma segura",
+            "content": [
+                {
+                    "type": "p",
+                    "content": [
+                        "La Autenticación Reforzada consiste en el uso combinado de diferentes medidas de seguridad que se aplican a la hora de validar la identidad y de realizar pagos electrónicos y otras operaciones.",
+                        "Se basa en la combinación de dos de los siguientes elementos:"
+                    ]
+                },
+                {
+                    "type": "list-bullet",
+                    "content": [
+                        "Algo que posees, como tu smartphone.",
+                        "Algo que conoces, como una contraseña.",
+                        "Algo inherente a ti, como tu huella digital, biometría facial o tu iris."
+                    ]
+                },
+                {
+                    "type": "p",
+                    "content": [
+                        "Estos elementos son independientes. Por tanto, si uno de ellos se vulnera, no se compromete la fiabilidad de los demás, dotando de una mayor seguridad a los servicios que utilizan la autenticación reforzada.",
+                        "Por ejemplo, para la realización de un pago por internet, se podría pedir tu clave para identificarte (lo que conoces) combinando una contraseña que te llega al teléfono móvil (lo que posees).",
+                        "A partir del 14 de septiembre, la directiva europea PSD2 exigirá la aplicación de autenticación fuerte en los pagos electrónicos. BBVA ya aplica la autenticación reforzada en las operaciones de riesgo (transferencias a cuentas no habituales y cambios de datos personales sensibles)."
+                    ]
+                }
+            ],
+            "location": {
+                "dashboard": {
+                    "isActive": true
+                },
+                "list": {
+                    "isActive": true
+                }
+            }
+        }
+    ]
+}

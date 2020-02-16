@@ -1,0 +1,26 @@
+
+{
+    "marcadores": [
+      {
+        "latitude": 40.416875,
+        "longitude": -3.703308,
+        "city": "Madrid",
+        "description": "Puerta del Sol",
+        "sucio": true
+      },
+      {
+        "latitude": 40.417438,
+        "longitude": -3.693363,
+        "city": "Madrid",
+        "description": "Paseo del Prado",
+        "sucio": true
+      },
+      {
+        "latitude": 40.407015,
+        "longitude": null,
+        "city": "Madrid",
+        "description": "Estación de Atocha",
+        "sucio": false
+      }
+    ]
+}
