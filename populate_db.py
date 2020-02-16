@@ -11,7 +11,7 @@ cursor = connection.cursor()
 
 # Mostrar registros
 
-query = q.news_insert_id("idedeprueba")
+query = q.news_insert_id("1")
 print(query)
 cursor.execute(query)
 #cursor.execute(q.S_TEXT_TYPES)
