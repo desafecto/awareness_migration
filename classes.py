@@ -36,14 +36,15 @@ class New:
             }
         }
 
-    def __init__(self, id, date, title, desc):
-        self.id = id
-        self.date = date
-        self.title = title
-        self.desc = desc
-        self.content = []
-        self.related = {}
-        self.located = {}
-        self.tags = []
-        self.video = {}
+    def __init__(self, id, img, date, title, desc):
+        self.new.id = id
+        self.new.img = img
+        self.new.date = date
+        self.new.title = title
+        self.new.desc = desc
+        self.new.content = []
+        self.new.related = {}
+        self.new.located = {}
+        self.new.tags = []
+        self.new.video = {}
 
