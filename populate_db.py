@@ -11,10 +11,9 @@ cursor = connection.cursor()
 
 # Mostrar registros
 
-query = q.news_insert_id("1")
+query = q.news_insert_row('topic_key', '23-02-1966', 'image url', 1, 1, 'video_img', 'video_url')
 print(query)
 cursor.execute(query)
-#cursor.execute(q.S_TEXT_TYPES)
 
 #filas = cursor.fetchall()
 #print(f"\n El cursor.fetchall() devuelve un tipo iterativo que es mismamente: {type(filas)}\n")
