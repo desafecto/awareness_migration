@@ -21,9 +21,6 @@ cursor.execute(query)
 #   print(f" y el tipo de dato devuelto sobre el que itera el cursor es: {type(fila)}")
 #print(fila)
 
-
-
-
 # Finalizar 
 connection.commit()
 connection.close()
