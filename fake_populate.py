@@ -27,6 +27,7 @@ def parse_news_file(lang):
         checking_input_data(data['news'])       
 
         for item in data['news'] :
+            order = 0
             # id
             print(f"\n\n\n (id)  ===> {item['id']}")
             # img
@@ -56,7 +57,8 @@ def parse_news_file(lang):
             print("\n    [content] (lang=%s):" %(lang))
             for item2 in item['content'] :
                 for item3 in item2['content'] :
-                    print(f"*(content) --> ({item2['type']}) --> {item3[:60]}...")
+                    order = order + 1
+                    print(f"*(content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
 
 
 if __name__ == '__main__':
