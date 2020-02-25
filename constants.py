@@ -6,7 +6,13 @@ input_file = {
     'spa': 'data_spa.json'
 }
 
-atributes_input = {
+securityItemsTypes = {
+    'news': 'new_atributes',
+    'tips': 'tip_atributes',
+    'glossary': 'glossary_atribute'
+}
+
+new_atributes = {
     'id': 'id',
     'img': 'img',
     'date': 'date',
@@ -17,4 +23,14 @@ atributes_input = {
     'location': 'location',
     'tags': 'tags',
     'video': 'video'
+}
+
+tip_atributes = {
+    'id': 'id',
+    'img': 'img',
+    'title': 'title',
+    'linkText': 'linkText',
+    'desc': 'desc',
+    'content': 'content',
+    'location': 'location'
 }

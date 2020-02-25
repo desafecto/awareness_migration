@@ -2,13 +2,17 @@ import json
 import constants as con
 
 
-def checking_input_data(inputData):
-    print("\n Checking input data list ...")
+def checking_input_data(inputData, itemData):
+    'Audita la presencia de atributos en News, Tips, y Glossary.'
 
-    for diccionario in inputData:
-        print(f"\n ------ Elemento {diccionario[con.atributes_input['id']]}")
-        for item in con.atributes_input:
-            print(f" check atribute --> {item}: {item in diccionario}")
+    print(f"\n Checking input data list to %s ..." %(itemData))
+    itemCategory = con.securityItemsTypes.get(itemData, "Invalid margument!")
+
+    for atribute in inputData[itemData]:
+        print(f"\n ------ Elemento {atribute}")
+        for item in con.new_atributes:
+            print(f" exists atribute --> {item}: {item in itemCategory}")
+
 
 def save_serialized_json(lang):
 
@@ -18,6 +22,7 @@ def save_serialized_json(lang):
         with open ("files/output_data.json", "w", encoding="utf-8") as w_file:
             json.dump(data, w_file, indent=2, ensure_ascii=False, separators=(',', ': '))
 
+
 def parse_news_file(lang):
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
@@ -25,7 +30,10 @@ def parse_news_file(lang):
 
 
         # Populate NEWS #########################################################
-        checking_input_data(data['news'])
+        print(' \n\n #########################################')
+        print(' #        NEWS                           #')
+        print(' #########################################')
+        checking_input_data(data, 'news')
         for item in data['news'] :
             order = 0
             # id
@@ -55,6 +63,34 @@ def parse_news_file(lang):
             # video (*)
             if 'video' in item :
                 print(" (video)  ==>  Exist!")
+            # content
+            print("\n    [content] (lang=%s):" %(lang))
+            for item2 in item['content'] :
+                for item3 in item2['content'] :
+                    order = order + 1
+                    print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+
+
+        # Populate TIPS #########################################################
+        print(' \n\n #########################################')
+        print(' #        TIPS                           #')
+        print(' #########################################')
+        #checking_input_data(data['tips'], 'tips')
+        for item in data['tips'] :
+            order = 0
+            # id
+            print(f"\n\n\n (id)  ===> {item['id']}")
+            # img
+            print(f" (img) ===> {item['img']}")
+            # title
+            print(f" (title) => {item['title']}")
+            # linkText
+            print(f" (linkText) => {item['linkText']}")
+            # desc
+            print(f" (desc) ==> {item['desc'][:60]}")
+            # location
+            for item6 in item['location'].keys() :
+                print(f" (location.{item6}): {item['location'][item6]['isActive']}")
             # content
             print("\n    [content] (lang=%s):" %(lang))
             for item2 in item['content'] :
