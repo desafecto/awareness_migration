@@ -6,7 +6,7 @@ def checking_input_data(inputData):
     print("\n Checking input data list ...")
 
     for diccionario in inputData:
-        print(f"\n Elemento {diccionario[con.atributes_input['id']]} ------")
+        print(f"\n ------ Elemento {diccionario[con.atributes_input['id']]}")
         for item in con.atributes_input:
             print(f" check atribute --> {item}: {item in diccionario}")
 
@@ -23,9 +23,9 @@ def parse_news_file(lang):
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         data=json.load(r_file)
 
-        # Just for news
-        checking_input_data(data['news'])       
 
+        # Populate NEWS #########################################################
+        checking_input_data(data['news'])
         for item in data['news'] :
             order = 0
             # id
@@ -48,8 +48,10 @@ def parse_news_file(lang):
                 print(f" (location.{item6}): {item['location'][item6]['isActive']}")
             # tags (*)
             if 'tags' in item :
+                tagOrder = 0
                 for item8 in item['tags'] :
-                    print(f" (tags.{item8}) --> {item8}")
+                    tagOrder = tagOrder + 1
+                    print(f" (tags [{tagOrder}] --> {item8}")
             # video (*)
             if 'video' in item :
                 print(" (video)  ==>  Exist!")
@@ -58,7 +60,7 @@ def parse_news_file(lang):
             for item2 in item['content'] :
                 for item3 in item2['content'] :
                     order = order + 1
-                    print(f"*(content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+                    print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
 
 
 if __name__ == '__main__':
