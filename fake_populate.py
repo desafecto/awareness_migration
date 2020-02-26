@@ -6,12 +6,17 @@ def checking_input_data(inputData, itemData):
     'Audita la presencia de atributos en News, Tips, y Glossary.'
 
     print(f"\n Checking input data list to %s ..." %(itemData))
-    itemCategory = con.securityItemsTypes.get(itemData, "Invalid margument!")
 
-    for atribute in inputData[itemData]:
-        print(f"\n ------ Elemento {atribute}")
-        for item in con.new_atributes:
-            print(f" exists atribute --> {item}: {item in itemCategory}")
+    itemsCounter = 0
+    for item in inputData[itemData]:
+        itemsCounter = itemsCounter + 1
+        print(f"\n ------ Elemento {itemsCounter}: {item['id']}")
+        if itemData == 'news':
+            for item2 in con.new_atributes:
+               print(f" exists 'new' atribute --> {item2}: {item2 in con.new_atributes}")
+        else:
+            for item2 in con.tip_atributes:
+               print(f" exists 'tip' atribute --> {item2}: {item2 in con.tip_atributes}")
 
 
 def save_serialized_json(lang):
@@ -75,7 +80,7 @@ def parse_news_file(lang):
         print(' \n\n #########################################')
         print(' #        TIPS                           #')
         print(' #########################################')
-        #checking_input_data(data['tips'], 'tips')
+        checking_input_data(data, 'tips')
         for item in data['tips'] :
             order = 0
             # id
