@@ -1,11 +1,27 @@
 import json
 import constants as con
+import logging
+
+logging.basicConfig(
+    filename='logs/logfile.log',
+    filemode='w',
+    format='   %(levelname)s:%(asctime)s --> %(message)s',
+    datefmt='%d/%m/%Y %I:%M:%S %p',
+    level=logging.DEBUG
+    )
+
+# logging.debug('This message should go to the log file')
+# logging.info('So should this')
+# logging.warning('And this, too')
+# logging.error('This is an error!')
+# logging.critical('appropriate for the specific error and application domain')
 
 
 def checking_input_data(inputData, itemData):
     'Audita la presencia de atributos en News, Tips, y Glossary.'
 
     print(f"\n Checking input data list to %s ..." %(itemData))
+    logging.debug(f"  previous checking input data list to %s ..." %(itemData))
 
     itemsCounter = 0
     for item in inputData[itemData]:
@@ -28,7 +44,7 @@ def save_serialized_json(lang):
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         json.load(r_file)
-        
+
         # with open ("files/output_data.json", "w", encoding="utf-8") as w_file:
         #     json.dump(data, w_file, indent=2, ensure_ascii=False, separators=(',', ': '))
 
@@ -36,11 +52,13 @@ def save_serialized_json(lang):
 def parse_json_file(lang):
     'Parsea el .json de entrada sacando todos su contenido organizado, listo para procesar'
 
+    logging.debug('Start file parsing...')
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         data=json.load(r_file)
 
 
         # Populate NEWS #########################################################
+        logging.debug('  populate NEWS')
         print(' \n\n #########################################')
         print(' #        NEWS                           #')
         print(' #########################################')
@@ -83,6 +101,7 @@ def parse_json_file(lang):
 
 
         # Populate GLOSSARY  #################################################
+        logging.debug('  populate GLOSSARY')
         print(' \n\n #########################################')
         print(' #        GLOSSARY                       #')
         print(' #########################################')
@@ -111,6 +130,7 @@ def parse_json_file(lang):
 
 
         # Populate TIPS ####################################################
+        logging.debug('  populate TIPS')
         print(' \n\n #########################################')
         print(' #        TIPS                           #')
         print(' #########################################')
