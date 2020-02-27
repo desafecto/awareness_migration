@@ -12,6 +12,13 @@ securityItemsTypes = {
     'glossary': 'glossary_atribute'
 }
 
+glossary_atributes = {
+    'id': 'id',
+    'title': 'title',
+    'content': 'content',
+    'synonyms': 'synonyms',
+    'location': 'location'
+}
 new_atributes = {
     'id': 'id',
     'img': 'img',

@@ -15,11 +15,16 @@ def checking_input_data(inputData, itemData):
             for item2 in con.new_atributes:
                print(f" exists 'new' atribute --> {item2}: {item2 in con.new_atributes}")
         else:
-            for item2 in con.tip_atributes:
-               print(f" exists 'tip' atribute --> {item2}: {item2 in con.tip_atributes}")
+            if itemData == 'glossary':
+                 for item2 in con.tip_atributes:
+                      print(f" exists 'tip' atribute --> {item2}: {item2 in con.tip_atributes}")
+            else:
+                 for item2 in con.glossary_atributes:
+                      print(f" exists 'glossary' atribute --> {item2}: {item2 in con.glossary_atributes}")
 
 
 def save_serialized_json(lang):
+    'Lee de un fichero .json y luego vuelca (dump) en un fichero .json el contenido del objeto Python'
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         data=json.load(r_file)
@@ -29,6 +34,7 @@ def save_serialized_json(lang):
 
 
 def parse_news_file(lang):
+    'Parsea el .json de entrada sacando todos su contenido organizado, listo para procesar'
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         data=json.load(r_file)
@@ -76,7 +82,35 @@ def parse_news_file(lang):
                     print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
 
 
-        # Populate TIPS #########################################################
+        # Populate GLOSSARY  #################################################
+        print(' \n\n #########################################')
+        print(' #        GLOSSARY                       #')
+        print(' #########################################')
+        checking_input_data(data, 'glossary')
+        for item in data['glossary'] :
+            order = 0
+            # id
+            print(f"\n\n\n (id)  ===> {item['id']}")
+            # title
+            print(f" (title) => {item['title']}")
+            # synonyms
+            if 'synonyms' in item :
+                tagOrder = 0
+                for item8 in item['synonyms'] :
+                    tagOrder = tagOrder + 1
+                    print(f" (synonyms [{tagOrder}] --> {item8}")
+            # location
+            for item6 in item['location'].keys() :
+                print(f" (location.{item6}): {item['location'][item6]['isActive']}")
+            # content
+            print("\n    [content] (lang=%s):" %(lang))
+            for item2 in item['content'] :
+                for item3 in item2['content'] :
+                    order = order + 1
+                    print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+
+
+        # Populate TIPS ####################################################
         print(' \n\n #########################################')
         print(' #        TIPS                           #')
         print(' #########################################')
