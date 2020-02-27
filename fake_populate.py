@@ -27,13 +27,13 @@ def save_serialized_json(lang):
     'Lee de un fichero .json y luego vuelca (dump) en un fichero .json el contenido del objeto Python'
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
-        data=json.load(r_file)
+        json.load(r_file)
         
-        with open ("files/output_data.json", "w", encoding="utf-8") as w_file:
-            json.dump(data, w_file, indent=2, ensure_ascii=False, separators=(',', ': '))
+        # with open ("files/output_data.json", "w", encoding="utf-8") as w_file:
+        #     json.dump(data, w_file, indent=2, ensure_ascii=False, separators=(',', ': '))
 
 
-def parse_news_file(lang):
+def parse_json_file(lang):
     'Parsea el .json de entrada sacando todos su contenido organizado, listo para procesar'
 
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
@@ -139,4 +139,4 @@ def parse_news_file(lang):
 
 
 if __name__ == '__main__':
-    parse_news_file('spa')
+    parse_json_file('spa')
