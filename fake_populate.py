@@ -32,11 +32,11 @@ def checking_input_data(inputData, itemData):
                print(f" exists 'new' atribute --> {item2}: {item2 in con.new_atributes}")
         else:
             if itemData == 'glossary':
-                 for item2 in con.tip_atributes:
-                      print(f" exists 'tip' atribute --> {item2}: {item2 in con.tip_atributes}")
-            else:
                  for item2 in con.glossary_atributes:
                       print(f" exists 'glossary' atribute --> {item2}: {item2 in con.glossary_atributes}")
+            else:
+                 for item2 in con.tip_atributes:
+                      print(f" exists 'tip' atribute --> {item2}: {item2 in con.tip_atributes}")
 
 
 def save_serialized_json(lang):
@@ -52,7 +52,7 @@ def save_serialized_json(lang):
 def parse_json_file(lang):
     'Parsea el .json de entrada sacando todos su contenido organizado, listo para procesar'
 
-    logging.debug('Start file parsing...')
+    logging.debug('Start file parsing ...')
     with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
         data=json.load(r_file)
 
