@@ -8,6 +8,7 @@ pylint = "*"
 pep8 = "*"
 v = {editable = true,version = "*"}
 autopep8 = "*"
+flake8 = "*"
 
 [packages]
 pymysql = "*"

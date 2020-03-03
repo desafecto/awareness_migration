@@ -84,13 +84,13 @@ def parse_json_file(lang):
             for item6 in item['location'].keys() :
                 print(f" (location.{item6}): {item['location'][item6]['isActive']}")
             # tags (*)
-            if 'tags' in item :
+            if 'tags' in item:
                 tagOrder = 0
-                for item8 in item['tags'] :
+                for item8 in item['tags']:
                     tagOrder = tagOrder + 1
                     print(f" (tags [{tagOrder}] --> {item8}")
             # video (*)
-            if 'video' in item :
+            if 'video' in item:
                 print(" (video)  ==>  Exist!")
             # content
             print("\n    [content] (lang=%s):" %(lang))
@@ -106,14 +106,14 @@ def parse_json_file(lang):
         print(' #        GLOSSARY                       #')
         print(' #########################################')
         checking_input_data(data, 'glossary')
-        for item in data['glossary'] :
+        for item in data['glossary']:
             order = 0
             # id
             print(f"\n\n\n (id)  ===> {item['id']}")
             # title
             print(f" (title) => {item['title']}")
             # synonyms
-            if 'synonyms' in item :
+            if 'synonyms' in item:
                 tagOrder = 0
                 for item8 in item['synonyms'] :
                     tagOrder = tagOrder + 1
@@ -127,7 +127,6 @@ def parse_json_file(lang):
                 for item3 in item2['content'] :
                     order = order + 1
                     print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
-
 
         # Populate TIPS ####################################################
         logging.debug('  populate TIPS')
