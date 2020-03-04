@@ -1,6 +1,5 @@
 import pymysql
 import querys as q
-import classes
 
 # Conectar con base de datos
 connection = pymysql.connect(host="localhost", 
@@ -24,3 +23,33 @@ cursor.execute(query)
 # Finalizar 
 connection.commit()
 connection.close()
+
+def populate_text_types():
+	' Populates the diferent text types used in news, tips, and glossary items.'
+
+	# Inserta los datos de la tabla de tipos de textos de una noticia
+	#
+	cursor = connection.cursor()
+	query = q.NEWS_TEXT_TYPES_DATA
+	cursor.execute(query)
+	connection.commit()
+	connection.close()
+
+	# Inserta los datos de la tabla de tipos de textos de un consejo
+	#
+	cursor = connection.cursor()
+	query = q.TIPS_TEXT_TYPES_DATA
+	cursor.execute(query)
+	connection.commit()
+	connection.close()
+
+	# Inserta los datos de la tabla de tipos de textos del glosario
+	#
+	cursor = connection.cursor()
+	query = q.GLOSSARY_TEXT_TYPES_DATA
+	cursor.execute(query)
+	connection.commit()
+	connection.close()
+
+if __name__ == '__main__':
+		populate_text_types()
