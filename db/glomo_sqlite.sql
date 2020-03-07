@@ -15,7 +15,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Table `mydb`.`news`  -- OK
 -- -----------------------------------------------------
-CREATE TABLE `news` (
+CREATE TABLE IF NOT EXISTS `news` (
   `idnew` INT NOT NULL,
   `topic_key` VARCHAR(80) NOT NULL,
   `date` VARCHAR(10) NOT NULL DEFAULT '24-12-2023',
@@ -30,7 +30,7 @@ CREATE TABLE `news` (
 -- -----------------------------------------------------
 -- Table `news_text_types` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE `news_text_types` (
+CREATE TABLE IF NOT EXISTS `news_text_types` (
   `text_type_id` INT NOT NULL,
   `type_name` VARCHAR(255) NOT NULL,
   `type_code` VARCHAR(50) NOT NULL DEFAULT 'p',
@@ -153,146 +153,123 @@ CREATE TABLE IF NOT EXISTS `tips` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`related_new_items`
+-- Table `related_new_items` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`related_new_items` (
-  `idrelated_new_items` INT NOT NULL COMMENT 'New related items. Can be tips or news.',
+CREATE TABLE IF NOT EXISTS `related_new_items` (
+  `idrelated_new_items` INT NOT NULL,
   `source_new_fk` INT NOT NULL,
   `target_new_fk` INT NULL DEFAULT NULL,
-  `target_tip_fk` INT NULL COMMENT 'Related tip reference',
+  `target_tip_fk` INT NULL,
   PRIMARY KEY (`idrelated_new_items`),
-  INDEX `new_source_fk_idx` (`source_new_fk` ASC) VISIBLE,
-  INDEX `new_target_fk_idx` (`target_new_fk` ASC) VISIBLE,
-  INDEX `fk_related_new_items_Tips1_idx` (`target_tip_fk` ASC) VISIBLE,
   CONSTRAINT `new_source_fk`
     FOREIGN KEY (`source_new_fk`)
-    REFERENCES `mydb`.`news` (`idnew`)
+    REFERENCES `news` (`idnew`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `new_target_fk`
     FOREIGN KEY (`target_new_fk`)
-    REFERENCES `mydb`.`news` (`idnew`)
+    REFERENCES `news` (`idnew`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `tips_target_fk`
     FOREIGN KEY (`target_tip_fk`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COMMENT = 'Related items. Can be Tips or News.';
+    ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tags`
+-- Table `tags` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tags` (
+CREATE TABLE IF NOT EXISTS `tags` (
   `idtags` INT NOT NULL,
   `order` INT NOT NULL,
-  `text_cat` VARCHAR(45) NULL COMMENT 'Tags related with the new.',
+  `text_cat` VARCHAR(45) NULL,
   `text_eng` VARCHAR(45) NULL,
   `text_eus` VARCHAR(45) NULL,
   `text_glg` VARCHAR(45) NULL,
   `text_spa` VARCHAR(45) NULL,
   `news_fk` INT NOT NULL,
   PRIMARY KEY (`idtags`),
-  INDEX `fk_tags_news1_idx` (`news_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tags_news`
     FOREIGN KEY (`news_fk`)
-    REFERENCES `mydb`.`news` (`idnew`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COMMENT = 'Tags to relationships';
+    REFERENCES `news` (`idnew`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tip_text_types`
+-- Table `tip_text_types` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tip_text_types` (
-  `idtiptexttypes` INT NOT NULL COMMENT 'Primary key',
-  `type_name` VARCHAR(100) NULL COMMENT 'Text type name',
-  `type_code` VARCHAR(50) NULL COMMENT 'Text type code',
-  PRIMARY KEY (`idtiptexttypes`))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `tip_text_types` (
+  `idtiptexttypes` INT NOT NULL,
+  `type_name` VARCHAR(100) NULL,
+  `type_code` VARCHAR(50) NULL,
+  PRIMARY KEY (`idtiptexttypes`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_spa`
+-- Table `tips_spa` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tips_spa` (
-  `idtips` INT NOT NULL COMMENT 'Primary key',
+CREATE TABLE IF NOT EXISTS `tips_spa` (
+  `idtips` INT NOT NULL,
   `tips_idTips` INT NOT NULL,
   `tip_text_fk` INT NOT NULL,
   `order` INT NOT NULL DEFAULT 0,
   `text` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idtips`, `tips_idTips`, `tip_text_fk`),
-  INDEX `fk_tips_spa_tips1_idx` (`tips_idTips` ASC) VISIBLE,
-  INDEX `fk_tips_spa_tip_text_types1_idx` (`tip_text_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tips_spa_tips1`
     FOREIGN KEY (`tips_idTips`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tips_spa_tip_text_types1`
     FOREIGN KEY (`tip_text_fk`)
-    REFERENCES `mydb`.`tip_text_types` (`idtiptexttypes`)
+    REFERENCES `tip_text_types` (`idtiptexttypes`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Texts in Spanish';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_cat`
+-- Table `tips_cat` -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tips_cat` (
-  `idtips` INT NOT NULL COMMENT 'Primary key',
+CREATE TABLE IF NOT EXISTS `tips_cat` (
+  `idtips` INT NOT NULL,
   `tips_fk` INT NOT NULL,
   `text_types_fk` INT NOT NULL,
   `order` INT NOT NULL DEFAULT 0,
   `text` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idtips`, `tips_fk`, `text_types_fk`),
-  INDEX `fk_tips_cat_tips1_idx` (`tips_fk` ASC) VISIBLE,
-  INDEX `fk_tips_cat_tip_text_types1_idx` (`text_types_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tips_cat_tips1`
     FOREIGN KEY (`tips_fk`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tips_cat_tip_text_types1`
     FOREIGN KEY (`text_types_fk`)
-    REFERENCES `mydb`.`tip_text_types` (`idtiptexttypes`)
+    REFERENCES `tip_text_types` (`idtiptexttypes`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Text in Catala';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_eng`
+-- Table `tips_eng`  -- Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tips_eng` (
-  `idtips` INT NOT NULL COMMENT 'Primary key',
+CREATE TABLE IF NOT EXISTS `tips_eng` (
+  `idtips` INT NOT NULL,
   `tips_fk` INT NOT NULL,
   `text_types_fk` INT NOT NULL,
   `order` INT NOT NULL DEFAULT 0,
   `text` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idtips`, `tips_fk`, `text_types_fk`),
-  INDEX `fk_tips_eng_tips1_idx` (`tips_fk` ASC) VISIBLE,
-  INDEX `fk_tips_eng_tip_text_types1_idx` (`text_types_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tips_eng_tips1`
     FOREIGN KEY (`tips_fk`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tips_eng_tip_text_types1`
     FOREIGN KEY (`text_types_fk`)
-    REFERENCES `mydb`.`tip_text_types` (`idtiptexttypes`)
+    REFERENCES `tip_text_types` (`idtiptexttypes`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Security tips';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
