@@ -18,3 +18,11 @@ def news_insert_title(idValue):
 
 def news_insert_desc(idValue):
     return "INSERT INTO news VALUES ('desc', '{0}');".format(idValue)
+
+I_NEWS_TEXT_TYPES = '''
+    INSERT INTO news_text_types (type_name,type_code)
+    VALUES 
+    (title,1)    
+    (desc,2),
+    (p,3);
+    '''

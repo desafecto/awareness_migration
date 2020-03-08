@@ -9,10 +9,12 @@ pep8 = "*"
 v = {editable = true,version = "*"}
 autopep8 = "*"
 flake8 = "*"
+apsw = {file = "https://github.com/rogerbinns/apsw/releases/download/3.13.0-r1/apsw-3.13.0-r1.zip"}
 
 [packages]
 pymysql = "*"
 cryptography = "*"
+apsw = {file = "https://github.com/rogerbinns/apsw/releases/download/3.13.0-r1/apsw-3.13.0-r1.zip"}
 
 [requires]
 python_version = "3.8"
