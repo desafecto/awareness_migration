@@ -131,3 +131,6 @@ dmypy.json
 # Editors - VisualStudioCode
 .vscode/*
 !.vscode/settings.json
+
+# DB SQLite
+db/security.db
