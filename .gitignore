@@ -133,4 +133,4 @@ dmypy.json
 !.vscode/settings.json
 
 # DB SQLite
-db/security.db
+db/*.db
