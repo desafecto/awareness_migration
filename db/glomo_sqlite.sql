@@ -1,19 +1,8 @@
--- MySQL Workbench Forward Engineering
+-- Create Data Base Security Awareness first version
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Table `mydb`.`news`  -- OK
+-- Table `news`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news` (
   `idnew` INT NOT NULL,
@@ -28,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 
 -- -----------------------------------------------------
--- Table `news_text_types` -- Ok
+-- Table `news_text_types` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_text_types` (
   `text_type_id` INT NOT NULL,
@@ -38,30 +27,27 @@ CREATE TABLE IF NOT EXISTS `news_text_types` (
 
 
 -- -----------------------------------------------------
--- Table `news_cat` -- OK
+-- Table `news_cat` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`news_cat` (
+CREATE TABLE IF NOT EXISTS `news_cat` (
   `id_text_cat` INT NOT NULL,
   `order` INT NOT NULL DEFAULT '0',
   `text` VARCHAR(1000) NOT NULL,
   `news_fk` INT NOT NULL,
   `text_types_fk` INT NOT NULL,
   PRIMARY KEY (`id_text_cat`, `news_fk`, `text_types_fk`),
-  UNIQUE INDEX `order_UNIQUE` (`order` ASC) VISIBLE,
-  INDEX `fk_news_text_cat_text_types1_idx` (`text_types_fk` ASC) VISIBLE,
-  INDEX `fk_news_text_cat_news1_idx` (`news_fk` ASC) VISIBLE,
   CONSTRAINT `fk_news_text_cat_news1`
     FOREIGN KEY (`news_fk`)
-    REFERENCES `mydb`.`news` (`idnew`)
+    REFERENCES `news` (`idnew`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_news_cat_types1`
     FOREIGN KEY (`text_types_fk`)
-    REFERENCES `mydb`.`news_text_types` (`text_type_id`));
+    REFERENCES `news_text_types` (`text_type_id`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`news_eng` -- OK
+-- Table `news_eng` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_eng` (
   `id_text_eng` INT NOT NULL,
@@ -81,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `news_eng` (
 
 
 -- -----------------------------------------------------
--- Table `news_eus` -- Ok
+-- Table `news_eus` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_eus` (
   `id_text_eus` INT NOT NULL,
@@ -101,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `news_eus` (
 
 
 -- -----------------------------------------------------
--- Table `news_glg` -- Ok
+-- Table `news_glg` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_glg` (
   `id_text_glg` INT NOT NULL,
@@ -121,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `news_glg` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`news_spa`  -- Ok
+-- Table `news_spa`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_spa` (
   `id_text_spa` INT NOT NULL,
@@ -141,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `news_spa` (
 
 
 -- -----------------------------------------------------
--- Table `tips` -- Ok
+-- Table `tips` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips` (
   `idTips` INT NOT NULL,
@@ -153,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `tips` (
 
 
 -- -----------------------------------------------------
--- Table `related_new_items` -- Ok
+-- Table `related_new_items` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `related_new_items` (
   `idrelated_new_items` INT NOT NULL,
@@ -179,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `related_new_items` (
 
 
 -- -----------------------------------------------------
--- Table `tags` -- Ok
+-- Table `tags` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tags` (
   `idtags` INT NOT NULL,
@@ -197,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
 
 
 -- -----------------------------------------------------
--- Table `tip_text_types` -- Ok
+-- Table `tip_text_types` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tip_text_types` (
   `idtiptexttypes` INT NOT NULL,
@@ -207,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `tip_text_types` (
 
 
 -- -----------------------------------------------------
--- Table `tips_spa` -- Ok
+-- Table `tips_spa` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_spa` (
   `idtips` INT NOT NULL,
@@ -229,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `tips_spa` (
 
 
 -- -----------------------------------------------------
--- Table `tips_cat` -- Ok
+-- Table `tips_cat` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_cat` (
   `idtips` INT NOT NULL,
@@ -251,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `tips_cat` (
 
 
 -- -----------------------------------------------------
--- Table `tips_eng`  -- Ok
+-- Table `tips_eng`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_eng` (
   `idtips` INT NOT NULL,
@@ -273,229 +259,196 @@ CREATE TABLE IF NOT EXISTS `tips_eng` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_eus`
+-- Table `tips_eus` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tips_eus` (
-  `idtips` INT NOT NULL COMMENT 'Primary key',
+CREATE TABLE IF NOT EXISTS `tips_eus` (
+  `idtips` INT NOT NULL,
   `tips_fk` INT NOT NULL,
   `text_types_fk` INT NOT NULL,
   `order` INT NOT NULL DEFAULT 0,
   `text` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idtips`, `tips_fk`, `text_types_fk`),
-  INDEX `fk_tips_eus_tips1_idx` (`tips_fk` ASC) VISIBLE,
-  INDEX `fk_tips_eus_tip_text_types1_idx` (`text_types_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tips_eus_tips1`
     FOREIGN KEY (`tips_fk`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tips_eus_tip_text_types1`
     FOREIGN KEY (`text_types_fk`)
-    REFERENCES `mydb`.`tip_text_types` (`idtiptexttypes`)
+    REFERENCES `tip_text_types` (`idtiptexttypes`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Security tips';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_glg`
+-- Table `tips_glg`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tips_glg` (
-  `idtips` INT NOT NULL COMMENT 'Primary key',
+CREATE TABLE IF NOT EXISTS `tips_glg` (
+  `idtips` INT NOT NULL,
   `tips_fk` INT NOT NULL,
   `tip_text_fk` INT NOT NULL,
   `order` INT NOT NULL DEFAULT 0,
   `text` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idtips`, `tips_fk`, `tip_text_fk`),
-  INDEX `fk_tips_glg_tips1_idx` (`tips_fk` ASC) VISIBLE,
-  INDEX `fk_tips_glg_tip_text_types1_idx` (`tip_text_fk` ASC) VISIBLE,
   CONSTRAINT `fk_tips_glg_tips1`
     FOREIGN KEY (`tips_fk`)
-    REFERENCES `mydb`.`tips` (`idTips`)
+    REFERENCES `tips` (`idTips`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tips_glg_tip_text_types1`
     FOREIGN KEY (`tip_text_fk`)
-    REFERENCES `mydb`.`tip_text_types` (`idtiptexttypes`)
+    REFERENCES `tip_text_types` (`idtiptexttypes`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Texts in Gallego';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary`
+-- Table `glossary`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary` (
+CREATE TABLE IF NOT EXISTS `glossary` (
   `idglossary` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `location1` INT NULL,
   `location2` INT NULL,
-  PRIMARY KEY (`idglossary`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`idglossary`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`synonyms`
+-- Table `synonyms` -Ok
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`synonyms` (
+CREATE TABLE IF NOT EXISTS `synonyms` (
   `idsynonym` INT NOT NULL,
   `order` INT NOT NULL,
-  `text_cat` VARCHAR(45) NULL COMMENT 'Tags related with the new.',
+  `text_cat` VARCHAR(45) NULL,
   `text_eng` VARCHAR(45) NULL,
   `text_eus` VARCHAR(45) NULL,
   `text_glg` VARCHAR(45) NULL,
   `text_spa` VARCHAR(45) NULL,
   `glossary_fk` INT NOT NULL,
   PRIMARY KEY (`idsynonym`),
-  INDEX `fk_tags_news0_idx` (`glossary_fk` ASC) VISIBLE,
   CONSTRAINT `glossary_synonym_fk`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COMMENT = 'Tags to relationships';
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_text_types`
+-- Table `glossary_text_types` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_text_types` (
+CREATE TABLE IF NOT EXISTS `glossary_text_types` (
   `idglossary_text_types` INT NOT NULL,
   `type_name` VARCHAR(200) NULL,
   `type_code` VARCHAR(45) NULL,
-  PRIMARY KEY (`idglossary_text_types`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`idglossary_text_types`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_cat`
+-- Table `glossary_cat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_cat` (
+CREATE TABLE IF NOT EXISTS `glossary_cat` (
   `idglossary_cat` INT NOT NULL,
   `glossary_fk` INT NOT NULL,
   `text_types_fk` INT NOT NULL,
   `order` INT NOT NULL,
   `text` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idglossary_cat`, `glossary_fk`, `text_types_fk`),
-  INDEX `fk_glossary_cat_glossary1_idx` (`glossary_fk` ASC) VISIBLE,
-  INDEX `fk_glossary_cat_glossary_text_types1_idx` (`text_types_fk` ASC) VISIBLE,
   CONSTRAINT `fk_glossary_cat_glossary1`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_glossary_cat_glossary_text_types1`
     FOREIGN KEY (`text_types_fk`)
-    REFERENCES `mydb`.`glossary_text_types` (`idglossary_text_types`)
+    REFERENCES `glossary_text_types` (`idglossary_text_types`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_eng`
+-- Table `glossary_eng` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_eng` (
+CREATE TABLE IF NOT EXISTS `glossary_eng` (
   `idglossary_eng` INT NOT NULL,
   `glossary_fk` INT NOT NULL,
   `order` INT NOT NULL,
   `text` VARCHAR(800) NOT NULL,
   `text_type_fk` INT NOT NULL,
   PRIMARY KEY (`idglossary_eng`, `glossary_fk`, `text_type_fk`),
-  INDEX `fk_glossary_cat_glossary1_idx` (`glossary_fk` ASC) VISIBLE,
-  INDEX `fk_glossary_eng_glossary_text_types1_idx` (`text_type_fk` ASC) VISIBLE,
   CONSTRAINT `fk_glossary_cat_glossary10`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_glossary_eng_glossary_text_types1`
     FOREIGN KEY (`text_type_fk`)
-    REFERENCES `mydb`.`glossary_text_types` (`idglossary_text_types`)
+    REFERENCES `glossary_text_types` (`idglossary_text_types`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_eus`
+-- Table `glossary_eus` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_eus` (
+CREATE TABLE IF NOT EXISTS `glossary_eus` (
   `idglossary_eus` INT NOT NULL,
   `glossary_fk` INT NOT NULL,
   `text_type_fk` INT NOT NULL,
   `order` INT NOT NULL,
   `text` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idglossary_eus`, `glossary_fk`, `text_type_fk`),
-  INDEX `fk_glossary_cat_glossary1_idx` (`glossary_fk` ASC) VISIBLE,
-  INDEX `fk_glossary_eus_glossary_text_types1_idx` (`text_type_fk` ASC) VISIBLE,
   CONSTRAINT `fk_glossary_cat_glossary100`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_glossary_eus_glossary_text_types1`
     FOREIGN KEY (`text_type_fk`)
-    REFERENCES `mydb`.`glossary_text_types` (`idglossary_text_types`)
+    REFERENCES `glossary_text_types` (`idglossary_text_types`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_glg`
+-- Table `glossary_glg` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_glg` (
+CREATE TABLE IF NOT EXISTS `glossary_glg` (
   `idglossary_glg` INT NOT NULL,
   `glossary_fk` INT NOT NULL,
   `text_type_fk` INT NOT NULL,
   `order` INT NOT NULL,
   `text` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idglossary_glg`, `glossary_fk`, `text_type_fk`),
-  INDEX `fk_glossary_cat_glossary1_idx` (`glossary_fk` ASC) VISIBLE,
-  INDEX `fk_glossary_glg_glossary_text_types1_idx` (`text_type_fk` ASC) VISIBLE,
   CONSTRAINT `fk_glossary_cat_glossary1000`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_glossary_glg_glossary_text_types1`
     FOREIGN KEY (`text_type_fk`)
-    REFERENCES `mydb`.`glossary_text_types` (`idglossary_text_types`)
+    REFERENCES `glossary_text_types` (`idglossary_text_types`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary_spa`
+-- Table `glossary_spa` 
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`glossary_spa` (
+CREATE TABLE IF NOT EXISTS `glossary_spa` (
   `idglossary_spa` INT NOT NULL,
   `glossary_fk` INT NOT NULL,
   `text_type_fk` INT NOT NULL,
   `order` INT NOT NULL,
   `text` VARCHAR(800) NOT NULL,
   PRIMARY KEY (`idglossary_spa`, `glossary_fk`, `text_type_fk`),
-  INDEX `fk_glossary_cat_glossary1_idx` (`glossary_fk` ASC) VISIBLE,
-  INDEX `fk_glossary_spa_glossary_text_types1_idx` (`text_type_fk` ASC) VISIBLE,
   CONSTRAINT `fk_glossary_cat_glossary10000`
     FOREIGN KEY (`glossary_fk`)
-    REFERENCES `mydb`.`glossary` (`idglossary`)
+    REFERENCES `glossary` (`idglossary`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_glossary_spa_glossary_text_types1`
     FOREIGN KEY (`text_type_fk`)
-    REFERENCES `mydb`.`glossary_text_types` (`idglossary_text_types`)
+    REFERENCES `glossary_text_types` (`idglossary_text_types`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
