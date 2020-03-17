@@ -1,19 +1,8 @@
--- MySQL Workbench Forward Engineering changed by Antonio in order to fit SQLite
+-- Create Data Base Security Awareness first version
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Table `mydb`.`news`  -- OK
+-- Table `news`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news` (
   `idnew` INT NOT NULL,
@@ -28,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 
 -- -----------------------------------------------------
--- Table `news_text_types` -- Ok
+-- Table `news_text_types` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_text_types` (
   `text_type_id` INT NOT NULL,
@@ -38,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `news_text_types` (
 
 
 -- -----------------------------------------------------
--- Table `news_cat` -- OK
+-- Table `news_cat` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_cat` (
   `id_text_cat` INT NOT NULL,
@@ -58,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `news_cat` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`news_eng` -- OK
+-- Table `news_eng` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_eng` (
   `id_text_eng` INT NOT NULL,
@@ -78,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `news_eng` (
 
 
 -- -----------------------------------------------------
--- Table `news_eus` -- Ok
+-- Table `news_eus` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_eus` (
   `id_text_eus` INT NOT NULL,
@@ -98,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `news_eus` (
 
 
 -- -----------------------------------------------------
--- Table `news_glg` -- Ok
+-- Table `news_glg` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_glg` (
   `id_text_glg` INT NOT NULL,
@@ -118,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `news_glg` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`news_spa`  -- Ok
+-- Table `news_spa`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news_spa` (
   `id_text_spa` INT NOT NULL,
@@ -138,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `news_spa` (
 
 
 -- -----------------------------------------------------
--- Table `tips` -- Ok
+-- Table `tips` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips` (
   `idTips` INT NOT NULL,
@@ -150,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `tips` (
 
 
 -- -----------------------------------------------------
--- Table `related_new_items` -- Ok
+-- Table `related_new_items` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `related_new_items` (
   `idrelated_new_items` INT NOT NULL,
@@ -176,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `related_new_items` (
 
 
 -- -----------------------------------------------------
--- Table `tags` -- Ok
+-- Table `tags` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tags` (
   `idtags` INT NOT NULL,
@@ -194,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
 
 
 -- -----------------------------------------------------
--- Table `tip_text_types` -- Ok
+-- Table `tip_text_types` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tip_text_types` (
   `idtiptexttypes` INT NOT NULL,
@@ -204,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `tip_text_types` (
 
 
 -- -----------------------------------------------------
--- Table `tips_spa` -- Ok
+-- Table `tips_spa` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_spa` (
   `idtips` INT NOT NULL,
@@ -226,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `tips_spa` (
 
 
 -- -----------------------------------------------------
--- Table `tips_cat` -- Ok
+-- Table `tips_cat` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_cat` (
   `idtips` INT NOT NULL,
@@ -248,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `tips_cat` (
 
 
 -- -----------------------------------------------------
--- Table `tips_eng`  -- Ok
+-- Table `tips_eng`  
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_eng` (
   `idtips` INT NOT NULL,
@@ -270,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `tips_eng` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tips_eus`  -- Ok
+-- Table `tips_eus` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_eus` (
   `idtips` INT NOT NULL,
@@ -292,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `tips_eus` (
 
 
 -- -----------------------------------------------------
--- Table `tips_glg` -- Ok 
+-- Table `tips_glg`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tips_glg` (
   `idtips` INT NOT NULL,
@@ -314,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `tips_glg` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`glossary` -- Ok
+-- Table `glossary`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary` (
   `idglossary` INT NOT NULL,
@@ -325,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `glossary` (
 
 
 -- -----------------------------------------------------
--- Table `synonyms` -- Ok
+-- Table `synonyms` -Ok
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `synonyms` (
   `idsynonym` INT NOT NULL,
@@ -343,8 +332,9 @@ CREATE TABLE IF NOT EXISTS `synonyms` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
+
 -- -----------------------------------------------------
--- Table `glossary_text_types` -- Ok
+-- Table `glossary_text_types` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_text_types` (
   `idglossary_text_types` INT NOT NULL,
@@ -354,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `glossary_text_types` (
 
 
 -- -----------------------------------------------------
--- Table `glossary_cat` -- Ok
+-- Table `glossary_cat`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_cat` (
   `idglossary_cat` INT NOT NULL,
@@ -376,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `glossary_cat` (
 
 
 -- -----------------------------------------------------
--- Table `glossary_eng` -- Ok
+-- Table `glossary_eng` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_eng` (
   `idglossary_eng` INT NOT NULL,
@@ -398,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `glossary_eng` (
 
 
 -- -----------------------------------------------------
--- Table `glossary_eus` -- Ok
+-- Table `glossary_eus` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_eus` (
   `idglossary_eus` INT NOT NULL,
@@ -420,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `glossary_eus` (
 
 
 -- -----------------------------------------------------
--- Table `glossary_glg` -- Ok
+-- Table `glossary_glg` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_glg` (
   `idglossary_glg` INT NOT NULL,
@@ -442,7 +432,7 @@ CREATE TABLE IF NOT EXISTS `glossary_glg` (
 
 
 -- -----------------------------------------------------
--- Table `glossary_spa` -- Ok
+-- Table `glossary_spa` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glossary_spa` (
   `idglossary_spa` INT NOT NULL,
@@ -462,7 +452,3 @@ CREATE TABLE IF NOT EXISTS `glossary_spa` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

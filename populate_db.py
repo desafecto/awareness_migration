@@ -1,26 +1,23 @@
-import pymysql
-import querys as q
-import classes
+import sqlite3
 
-# Conectar con base de datos
-connection = pymysql.connect(host="localhost", 
-                           user="antonio", 
-                           passwd="", 
-                           database="mydb")
-cursor = connection.cursor()
+try:
+		sqliteConnection = sqlite3.connect('db/security.db')
+		cursor = sqliteConnection.cursor()
+		print("Database connection created and Successfully Connected to SQLite")
 
-# Mostrar registros
+		sqlite_select_Query = "select sqlite_version();"
+		cursor.execute(sqlite_select_Query)
+		record = cursor.fetchall()
+		print("SQLite Database Version is: ", record)
+		cursor.close()
 
-query = q.news_insert_row('topic_key', '23-02-1966', 'image url', 1, 1, 'video_img', 'video_url')
-print(query)
-cursor.execute(query)
+except sqlite3.Error as error:
+		print("Error while connecting to sqlite", error)
+finally:
+		if (sqliteConnection):
+				sqliteConnection.close()
+				print("The SQLite connection is closed")
 
-#filas = cursor.fetchall()
-#print(f"\n El cursor.fetchall() devuelve un tipo iterativo que es mismamente: {type(filas)}\n")
-#for fila in filas:
-#   print(f" y el tipo de dato devuelto sobre el que itera el cursor es: {type(fila)}")
-#print(fila)
 
-# Finalizar 
-connection.commit()
-connection.close()
+# if __name__ == '__main__':
+# 		populate_text_types()

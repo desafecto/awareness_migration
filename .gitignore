@@ -128,6 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Editors - pero dice que me peine
+# Editors - VisualStudioCode
 .vscode/*
-.vscode/settings.json
+!.vscode/settings.json
+
+# DB SQLite
+db/*.db
