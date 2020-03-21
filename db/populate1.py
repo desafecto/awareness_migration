@@ -6,7 +6,7 @@ print("Version biblioteca SQLite:",apsw.sqlitelibversion())
 print("Version cabecera SQLite..:",apsw.SQLITE_VERSION_NUMBER)
 
 
-conexion=apsw.Connection("../../sqlite/primerone.db")
+conexion=apsw.Connection("../../sqlite/firstone.db")
 cursor=conexion.cursor()
 
 # Para habilitar las restricciones de integridad
