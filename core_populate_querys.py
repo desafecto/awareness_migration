@@ -1,4 +1,6 @@
-
+# SQLite data base used
+#
+DB = '../../sqlite/sample_db/firstone.db'
 
 # Truncate table news_text_types
 #
@@ -38,12 +40,12 @@ TIPS_TEXT_TYPES_DATA = '''
 # Iserts Glossary text types into table glossary_text_types
 #
 GLOSSARY_TEXT_TYPES_DATA = '''
-    INSERT INTO glossary_text_types(idglossary_text_types,type_name,type_code) VALUES 
-    (1,'p','p'),
-    (2,'list-bullet','b'),
-    (3,'img','i'),
-    (4,'title','t'),
-    (5,'description','d');
+    INSERT INTO glossary_text_types(idglossary_text_types,type_name,type_code,type_desc) VALUES 
+    (1,'p','p','paragraph'),
+    (2,'list-bullet','b','list item'),
+    (3,'img','i','image'),
+    (4,'title','t','title'),
+    (5,'description','d','description');
    '''
 
 # Select from tables

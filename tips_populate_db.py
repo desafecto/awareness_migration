@@ -1,9 +1,9 @@
 import sqlite3
 import logging
-import core_populate_querys as q
+import tips_populate_querys as q
 
 logging.basicConfig(
-    filename='logs/create_populate_db.log',
+    filename='logs/populate_db_tips.log',
     filemode='w',
     format='   %(levelname)s:%(asctime)s: %(message)s',
     datefmt='%d/%m/%Y %I:%M:%S%p',
