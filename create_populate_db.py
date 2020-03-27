@@ -1,6 +1,6 @@
 import sqlite3
 import logging
-import core_populate_querys as q
+import create_populate_querys as q
 
 logging.basicConfig(
     filename='logs/create_populate_db.log',
