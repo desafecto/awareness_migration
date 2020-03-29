@@ -1,6 +1,11 @@
 # SQLite data base used
 #
 DB = '../../sqlite/sample_db/firstone.db'
+DB2 = 'db/prueba.db'
+
+CREATION_SCRIPT = "db_creation.sql"
+
+CREATE_DB = "sqlite3 %s .read %s " %(DB2, CREATION_SCRIPT)
 
 # Truncate table news_text_types
 #

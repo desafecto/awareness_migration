@@ -12,32 +12,33 @@ logging.basicConfig(
 
 try:
 		# Connect to data base
-		sqliteConnection = sqlite3.connect(q.DB)
+		sqliteConnection = sqlite3.connect(q.DB2)
 		cursor = sqliteConnection.cursor()
-		logging.info("Successfully connected to SQLite DB: %s" %(q.DB))
+		logging.info("Successfully connected to SQLite DB: %s" %(q.DB2))
 
 		# Enable foreing-keys
 		cursor.execute("PRAGMA foreign_keys=ON;")
 		logging.info("foreing keys enabled: PRAGMA foreign_keys=ON")
 
+		# obtains DB version
 		sqlite_select_Query = "select sqlite_version();"
 		cursor.execute(sqlite_select_Query)
 		record = cursor.fetchall()
 		logging.info("SQLite Database Version is: %s" %(record))
 
-		# Populate glossary text types
+		# Populates glossary text types
 		cursor.execute(q.TRUNCATE_GLOSSARY_TEXT_TYPES)
 		logging.debug("executed TRUNCATE_GLOSSARY_TEXT_TYPES")
 		cursor.execute(q.GLOSSARY_TEXT_TYPES_DATA)
 		logging.debug("executed GLOSSARY_TEXT_TYPES_DATA")
 
-		# Populate news text types
+		# Populates news text types
 		cursor.execute(q.TRUNCATE_NEWS_TEXT_TYPES)
 		logging.debug("executed TRUNCATE_NEWS_TEXT_TYPES")
 		cursor.execute(q.NEWS_TEXT_TYPES_DATA)
 		logging.debug("executed NEWS_TEXT_TYPES_DATA")
 
-		# Populate tips text types
+		# Populates tips text types
 		cursor.execute(q.TRUNCATE_TIPS_TEXT_TYPES)
 		logging.debug("executed TRUNCATE_TIPS_TEXT_TYPES")
 		cursor.execute(q.TIPS_TEXT_TYPES_DATA)
@@ -47,12 +48,12 @@ try:
 		cursor.close()
 		logging.debug("The cursor is closed yet")
 
-		# Perform connection commit
+		# Performs connection commit
 		sqliteConnection.commit()
 		logging.debug("Connection commit done")
 
 except sqlite3.Error as error:
-		print(" ** Error while connecting to sqlite", error)
+		print(" ** Error while operating with sqlite", error)
 		logging.error(" ** Error while working on sqlite; %s" %error)
 finally:
 		if (sqliteConnection):
