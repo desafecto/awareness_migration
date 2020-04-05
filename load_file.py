@@ -1,6 +1,8 @@
 import json
 import constants as con
 import logging
+import sqlite3
+import load_querys as q
 
 logging.basicConfig(
     filename='logs/load_file.log',
@@ -9,13 +11,6 @@ logging.basicConfig(
     datefmt='%d/%m/%Y %I:%M:%S %p',
     level=logging.DEBUG
     )
-
-# logging.debug('This message should go to the log file')
-# logging.info('So should this')
-# logging.warning('And this, too')
-# logging.error('This is an error!')
-# logging.critical('appropriate for the specific error and application domain')
-
 
 def checking_input_data(inputData, itemData):
     ''' Audita la presencia de atributos en News, Tips, y Glossary.
@@ -52,22 +47,35 @@ def save_serialized_json(lang):
         #     json.dump(data, w_file, indent=2, ensure_ascii=False, separators=(',', ': '))
 
 
-def parse_json_file(lang):
-    """Parsea el .json de entrada sacando todos sus datos e insertándolos en una
-       base de datos SQLite.
+def load_json_file(lang):
+    """
+    Parsea el .json de entrada sacando todos sus datos e insertándolos en una
+    base de datos SQLite.
     """
 
-    logging.debug('Start file parsing ...')
-    with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
-        data=json.load(r_file)
+    logging.info('Start file parsing ...')
 
+    # Open DB connection
+    try:
+        sqliteConnection = sqlite3.connect(q.DB2)
+        cursor = sqliteConnection.cursor()
+        logging.info("successfully connected to SQLite DB: %s" %(q.DB2))
+
+		# Disable foreing-keys
+        cursor.execute("PRAGMA foreign_keys=OFF;")
+        logging.info("foreing keys disabled: PRAGMA foreign_keys=OFF")
+
+    except sqlite3.Error as error:
+        print(" ** Error while connecting with sqlite", error)
+        logging.error(" ** Error while connecting on sqlite; %s" %error)
+        
+    try:
+        with open ("files/" + con.input_file[lang], "r", encoding="utf-8") as r_file:
+            data=json.load(r_file)
+            logging.info('input file read successfully')
 
         # Populate NEWS #########################################################
         logging.debug('  populate NEWS')
-        print(' \n\n #########################################')
-        print(' #        NEWS                           #')
-        print(' #########################################')
-        checking_input_data(data, 'news')
         for item in data['news'] :
             order = 0
             # id
@@ -103,7 +111,6 @@ def parse_json_file(lang):
                 for item3 in item2['content'] :
                     order = order + 1
                     print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
-
 
         # Populate GLOSSARY  #################################################
         logging.debug('  populate GLOSSARY')
@@ -160,7 +167,22 @@ def parse_json_file(lang):
                 for item3 in item2['content'] :
                     order = order + 1
                     print(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+    
+    except sqlite3.Error as error:
+        print(" ** Error while working with sqlite", error)
+        logging.error(" ** Error while working on sqlite; %s" %error)
+        pass
 
+    except:
+        print(" ** Error while working with sqlite", error)
+        logging.error(" ** Error while working on sqlite; %s" %error)        
+
+    finally:
+        if (sqliteConnection):
+            # close the connection
+            sqliteConnection.close()
+            logging.info("the SQLite connection is closed now")
+        logging.info("Script process finished.")
 
 if __name__ == '__main__':
-    parse_json_file('spa')
+    load_json_file('spa')
