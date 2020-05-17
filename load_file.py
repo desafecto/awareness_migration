@@ -64,7 +64,7 @@ def load_json_file(lang):
         logger.info("foreing keys disabled: PRAGMA foreign_keys=OFF")
 
     except sqlite3.Error as error:
-        logger.error(" ** Error while connecting on sqlite; %s" %error)
+        logger.error(" ** ERROR connecting to sqlite DB: ; %s" %error)
         raise
 
     try:
@@ -78,12 +78,16 @@ def load_json_file(lang):
             # id
             logger.info(f"\n\n\n (id)  ===> {item['id']}")
             # img
+            img = item['img']
             logger.info(f" (img) ===> {item['img']}")
             # date
+            date = item['date']
             logger.info(f" (date) ==> {item['date']}")
             # title
+            title = item['title']
             logger.info(f" (title) => {item['title']}")
             # desc
+            desc = item['desc']
             logger.info(f" (desc) ==> {item['desc'][:60]}")
             # related (*)
             if 'related' in item:
@@ -101,15 +105,17 @@ def load_json_file(lang):
                     logger.info(f" (tags [{tagOrder}] --> {item8}")
             # video (*)
             if 'video' in item:
-                logger.info(" (video)  ==>  Exist!")
+                video = item['video']
+                logger.info(f" (video)  ==>  {item['video']}")
             # content
             logger.info("\n    [content] (lang=%s):" %(lang))
             for item2 in item['content'] :
                 for item3 in item2['content'] :
                     order = order + 1
                     logger.info(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+            
 
-        # Populate GLOSSARY  #################################################
+        # Populate GLOSSARY #################################################
         logger.info(' #        GLOSSARY                       #')
         for item in data['glossary']:
             order = 0
@@ -132,6 +138,7 @@ def load_json_file(lang):
                 for item3 in item2['content'] :
                     order = order + 1
                     logger.info(f"    (content) --> ({item2['type']}) (order: {order}) --> {item3[:60]}...")
+
 
         # Populate TIPS ####################################################
         logger.info(' #        TIPS                           #')
@@ -178,7 +185,7 @@ def load_json_file(lang):
 
     finally:
         if (sqliteConnection):
-            # close the connection
+            # close the db connection
             sqliteConnection.close()
             logger.info("the SQLite connection is closed now")
         logger.info("Script process finished.")
